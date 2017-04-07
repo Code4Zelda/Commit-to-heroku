@@ -7,11 +7,12 @@ from django.contrib.auth.models import User
 from django.conf.urls.static import static
 from django.conf import settings
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
     url(r'^restaurant/sign-in/$',auth_views.login,
-        {'template_name': 'restaurant/sign_in.html'},
+        { 'template_name': 'restaurant/sign_in.html'},
         name = 'restaurant-sign-in'),
     url(r'^restaurant/sign-out', auth_views.logout,
         {'next_page': '/'},

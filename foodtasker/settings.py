@@ -57,7 +57,7 @@ ROOT_URLCONF = 'foodtasker.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/Dnall27/Desktop/foodtasker/foodtaskerapp/template'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
