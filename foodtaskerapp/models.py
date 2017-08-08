@@ -23,7 +23,7 @@ class Customer(models.Model):
         return self.user.get_full_name()
 
 class Driver(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='driver') 
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='driver')
     avatar = models.CharField(max_length=500)
     phone = models.CharField(max_length=500, blank=True)
     address = models.CharField(max_length=500, blank=True)
@@ -56,7 +56,7 @@ class Order(models.Model):
 
     customer = models.ForeignKey(Customer)
     restaurant = models.ForeignKey(Restaurant)
-    driver = models.ForeignKey(Driver)
+    driver = models.ForeignKey(Driver, blank = True, null = True)
     address = models.CharField(max_length=500)
     total = models.IntegerField()
     status = models.IntegerField(choices = STATUS_CHOICES)
