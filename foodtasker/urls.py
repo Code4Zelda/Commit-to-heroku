@@ -35,11 +35,25 @@ urlpatterns = [
     url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
     # /convert-token (sign in/ sign up)
     # /revoke-token (sign out)
+    url(r'^api/restaurant/order/notification/(?P<last_request_time>.+)/$',apiviews.restaurant_order_notification),
 
+#################################
 #API FOR CUSTOMERS
+#################################
     url (r'^api/customer/restaurants/$', apiviews.customer_get_restaurants),
     url (r'^api/customer/meals/(?P<restaurant_id>\d+)/$', apiviews.customer_get_meals),
     url (r'^api/customer/order/add/$', apiviews.customer_add_order),
     url (r'^api/customer/order/latest/$', apiviews.customer_get_latest_order),
+
+
+#################################
+#API FOR DRIVERS
+#################################
+    url(r'^api/driver/orders/ready/$', apiviews.driver_get_ready_orders),
+    url(r'^api/driver/order/pick/$', apiviews.driver_pick_order),
+    url(r'^api/driver/order/complete/$', apiviews.driver_get_complete_order),
+    url(r'^api/driver/order/latest/$', apiviews.driver_get_latest_order),
+    url(r'api/driver/revenue/$', apiviews.driver_get_revenue),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
